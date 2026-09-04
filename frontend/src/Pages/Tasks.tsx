@@ -7,7 +7,6 @@ import { confirm } from "../components/CustomConfirmation"
 import { useSelector } from "react-redux"
 import type { RootState } from "../app/store"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import SkeletonPage from "../components/CustomSkeleton"
 import swr from "../assets/images.jpg"
 
 const url = import.meta.env.VITE_BACKEND_URL
@@ -145,7 +144,7 @@ function Tasks() {
     }
 
     // React query to fetch data
-    const { data: projectData, isPending, isError } = useQuery({
+    const { data: projectData, isError } = useQuery({
         queryKey: ["projectData", page, month],
         queryFn: GetData
     })
